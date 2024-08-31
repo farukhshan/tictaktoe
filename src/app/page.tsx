@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 
+
 function Square({ value, onSquareClick }) {
   return (
     <button className="square" onClick={onSquareClick}>
@@ -60,13 +61,13 @@ export default function Game() {
   const xIsNext = currentMove % 2 === 0;
   const currentSquares = history[currentMove];
 
-  function handlePlay(nextSquares) {
-    const nextHistory = [...history.slice(0, currentMove + 1), nextSquares];
+  function handlePlay(nextSquares : string) {
+    const nextHistory : any = [...history.slice(0, currentMove + 1), nextSquares];
     setHistory(nextHistory);
     setCurrentMove(nextHistory.length - 1);
   }
 
-  function jumpTo(nextMove) {
+  function jumpTo(nextMove :number) {
     setCurrentMove(nextMove);
   }
 
@@ -96,7 +97,7 @@ export default function Game() {
   );
 }
 
-function calculateWinner(squares) {
+function calculateWinner(squares: any[]) {
   const lines = [
     [0, 1, 2],
     [3, 4, 5],
